@@ -50,12 +50,15 @@ class ListFragment : Fragment(R.layout.fragment_list) {
 
 	private fun render(state: ListState) {
 		when (state) {
-			is ListState.Loading -> {}
+			is ListState.Loading -> {
+				binding.viewLoading.root.visibility = View.VISIBLE
+			}
 
 			is ListState.Content -> {
 				lifecycleScope.launch {
 					booksAdapter.submitData(state.data)
 				}
+				binding.viewLoading.root.visibility = View.GONE
 			}
 		}
 	}
