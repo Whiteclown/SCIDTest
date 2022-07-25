@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<!--Тулбар-->
+	<com.google.android.material.appbar.AppBarLayout
+		android:id="@+id/toolbar_container"
+		android:layout_width="match_parent"
+		android:layout_height="60dp"
+		app:layout_constraintTop_toTopOf="parent">
+
+		<com.google.android.material.appbar.MaterialToolbar
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			app:contentInsetLeft="0dp"
+			app:contentInsetStart="0dp">
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:gravity="center"
+				android:orientation="horizontal"
+				android:paddingVertical="12dp">
+
+				<TextView
+					android:id="@+id/tv_screen_name"
+					style="@style/MyTextView"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/list"
+					android:textSize="20sp"
+					android:textStyle="bold" />
+			</LinearLayout>
+		</com.google.android.material.appbar.MaterialToolbar>
+	</com.google.android.material.appbar.AppBarLayout>
+
+	<androidx.recyclerview.widget.RecyclerView
+		android:id="@+id/rv_books"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:orientation="vertical"
+		app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/toolbar_container"
+		tools:listitem="@layout/item_book" />
+</androidx.constraintlayout.widget.ConstraintLayout>

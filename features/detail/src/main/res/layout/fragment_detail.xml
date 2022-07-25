@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<!--Тулбар-->
+	<com.google.android.material.appbar.AppBarLayout
+		android:id="@+id/toolbar_container"
+		android:layout_width="match_parent"
+		android:layout_height="60dp"
+		app:layout_constraintTop_toTopOf="parent">
+
+		<com.google.android.material.appbar.MaterialToolbar
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			app:contentInsetLeft="0dp"
+			app:contentInsetStart="0dp">
+
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:paddingVertical="12dp">
+
+				<ImageButton
+					android:id="@+id/ibtn_back"
+					style="@style/Widget.Material3.Button.OutlinedButton"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:src="@drawable/ic_arrow_back"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent" />
+
+				<TextView
+					android:id="@+id/tv_screen_name"
+					style="@style/MyTextView"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="4dp"
+					android:textSize="20sp"
+					android:textStyle="bold"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent" />
+			</androidx.constraintlayout.widget.ConstraintLayout>
+		</com.google.android.material.appbar.MaterialToolbar>
+	</com.google.android.material.appbar.AppBarLayout>
+
+	<TextView
+		android:id="@+id/tv_name"
+		style="@style/MyTextView"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="16dp"
+		android:layout_marginTop="16dp"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/toolbar_container"
+		tools:text="TextView" />
+
+	<TextView
+		android:id="@+id/tv_date"
+		style="@style/MyTextView"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="16dp"
+		android:layout_marginTop="8dp"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/tv_name"
+		tools:text="TextView" />
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_marginTop="8dp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/tv_date"
+		tools:layout_editor_absoluteX="1dp">
+
+		<TextView
+			android:id="@+id/tv_description"
+			style="@style/MyTextView"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:paddingHorizontal="16dp"
+			tools:text="TextView" />
+	</ScrollView>
+
+	<include
+		android:id="@+id/view_loading"
+		layout="@layout/view_loading" />
+</androidx.constraintlayout.widget.ConstraintLayout>
